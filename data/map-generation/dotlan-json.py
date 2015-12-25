@@ -43,7 +43,10 @@ def hasStation(sysid):
 
 def toRegion(sysid):
     for node in doc.getElementsByTagName('symbol'):
-        id = int(node.getAttribute('id')[3:])
+        try:
+            id = int(node.getAttribute('id')[3:])
+        except ValueError:
+            return ''
         if (sysid != id):
             continue
 
